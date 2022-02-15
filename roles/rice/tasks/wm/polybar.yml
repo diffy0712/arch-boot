@@ -1,0 +1,39 @@
+- name: Install polybar
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      - polybar
+      - xorg-fonts-misc
+      - siji-git
+      - ttf-unifont
+
+- name: Ensure polybar config directory exists
+  file:
+    path: "/home/{{ item }}/.config/polybar"
+    state: directory
+  loop:
+    - diffy
+    - panic
+
+- name: Copy polybar config
+  template:
+    src: files/wm/polybar/config.j2
+    dest: "/home/{{ item }}/.config/polybar/config"
+    owner: "{{ item }}"
+    group: "{{ item }}"
+    mode: '0644'
+  loop:
+    - diffy
+    - panic
+
+- name: Copy polybar config lanuncher
+  template:
+    src: files/wm/polybar/launch.sh.j2
+    dest: "/home/{{ item }}/.config/polybar/launch.sh"
+    owner: "{{ item }}"
+    group: "{{ item }}"
+    mode: '0775'
+  loop:
+    - diffy
+    - panic

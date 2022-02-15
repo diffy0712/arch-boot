@@ -1,0 +1,30 @@
+---
+- name: Install docker and docker-compose
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay
+    name:
+    - docker
+    - docker-compose
+
+- name: Enable and make sure running the service docker
+  ansible.builtin.service:
+    name: docker
+    enabled: yes
+    state: started
+
+- name: adding existing user '{{ item }}' to group docker
+  user:
+    name: "{{ item }}"
+    groups: docker
+    append: yes
+  loop:
+    - diffy
+    - panic
+
+- name: Ensure docker config directory exists
+  file:
+    path: "/home/{{ item }}/.docker"
+    state: directory
+  loop:
+    - panic

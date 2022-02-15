@@ -1,0 +1,26 @@
+---
+- name: Install core packages from aur
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      - flameshot
+
+- name: Ensure flameshot config directory exists
+  file:
+    path: "/home/{{ item }}/.config/flameshot"
+    state: directory
+  loop:
+    - diffy
+    - panic
+
+- name: Copy flameshot config
+  template:
+    src: files/utils/flameshot.ini.j2
+    dest: "/home/{{ item }}/.config/flameshot.ini"
+    owner: "{{ item }}"
+    group: "{{ item }}"
+    mode: '0644'
+  loop:
+    - diffy
+    - panic

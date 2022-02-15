@@ -1,0 +1,25 @@
+- name: Install picom compositor
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      - picom
+
+- name: Ensure picom config directory exists
+  file:
+    path: "/home/{{ item }}/.config/picom"
+    state: directory
+  loop:
+    - diffy
+    - panic
+
+- name: Copy picom config
+  template:
+    src: files/wm/picom/picom.conf.j2
+    dest: "/home/{{ item }}/.config/picom/picom.conf"
+    owner: "{{ item }}"
+    group: "{{ item }}"
+    mode: '0644'
+  loop:
+    - diffy
+    - panic

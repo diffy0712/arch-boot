@@ -1,0 +1,45 @@
+---
+- name: Ensure .bashrc is configured
+  ansible.builtin.copy:
+    src: "files/shells/bash/.bashrc"
+    dest: "/home/{{ item }}/.bashrc"
+    owner: "{{ item }}"
+    group: "{{ item }}"
+    mode: '0644'
+  loop:
+    - diffy
+    - panic
+
+- name: Ensure .bash_profile is configured
+  ansible.builtin.copy:
+    src: "files/shells/bash/.bash_profile"
+    dest: "/home/{{ item }}/.bash_profile"
+    owner: "{{ item }}"
+    group: "{{ item }}"
+    mode: '0644'
+  loop:
+    - diffy
+    - panic
+
+
+- name: Ensure .bash_logout is configured
+  ansible.builtin.copy:
+    src: "files/shells/bash/.bash_logout"
+    dest: "/home/{{ item }}/.bash_logout"
+    owner: "{{ item }}"
+    group: "{{ item }}"
+    mode: '0644'
+  loop:
+    - diffy
+    - panic
+
+- name: Ensure configs are in place
+  ansible.builtin.copy:
+    src: "files/shells/bash/config/"
+    dest: "/home/{{ item }}/.config/bash/"
+    owner: "{{ item }}"
+    group: "{{ item }}"
+    mode: '0644'
+  loop:
+    - diffy
+    - panic

@@ -1,0 +1,7 @@
+---
+- name: Ensure python is installed
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay
+    name:
+    - python

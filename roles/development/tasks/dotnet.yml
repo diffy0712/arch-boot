@@ -1,0 +1,11 @@
+---
+- name: Ensure packages for dotnet development are installed
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay
+    name:
+    - rider
+    - mono
+    - dotnet-runtime
+    - dotnet-sdk
+    - aspnet-runtime

@@ -1,0 +1,10 @@
+---
+- include_tasks: i3.yml
+
+- include_tasks: polybar.yml
+
+- include_tasks: dunst.yml
+
+- include_tasks: picom.yml
+
+# - include_tasks: rofi.yml

@@ -1,0 +1,4 @@
+---
+- include_tasks: zsh.yml
+
+- include_tasks: bash.yml

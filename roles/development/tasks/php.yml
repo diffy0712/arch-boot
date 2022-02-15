@@ -1,0 +1,9 @@
+---
+- name: Ensure packages for php development are installed
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay
+    name:
+    - php
+    - phpstorm
+    - phpstorm-jre

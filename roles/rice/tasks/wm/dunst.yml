@@ -1,0 +1,25 @@
+- name: Install picom compositor
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      - dunst
+
+- name: Ensure dunst config directory exists
+  file:
+    path: "/home/{{ item }}/.config/dunst"
+    state: directory
+  loop:
+    - diffy
+    - panic
+
+- name: Copy dunst config
+  template:
+    src: files/wm/dunst/dunstrc.j2
+    dest: "/home/{{ item }}/.config/dunst/dunstrc"
+    owner: "{{ item }}"
+    group: "{{ item }}"
+    mode: '0644'
+  loop:
+    - diffy
+    - panic

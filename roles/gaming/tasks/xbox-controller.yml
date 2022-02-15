@@ -1,0 +1,8 @@
+---
+# @source https://wiki.archlinux.org/title/Gamepad#Xbox_Wireless_Controller_/_Xbox_One_Wireless_Controller
+# - name: Install xbox one bluetooth dependencies
+#   become_user: aur_builder
+#   kewlfft.aur.aur:
+#     use: yay
+#     name:
+#      - xpadneo-dkms

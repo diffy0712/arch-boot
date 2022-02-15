@@ -1,0 +1,14 @@
+---
+- name: Ensure bluetooth is installed
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay
+    name:
+     - bluez
+     - bluez-utils
+
+- name: Enable and make sure running the service bluetooth
+  ansible.builtin.service:
+    name: bluetooth
+    enabled: yes
+    state: started

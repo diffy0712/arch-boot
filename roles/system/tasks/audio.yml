@@ -1,0 +1,20 @@
+---
+- name: Ensure Pulseaudio is installed
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay
+    name:
+    - pulseaudio
+    - pulseaudio-alsa
+    - pulseaudio-bluetooth
+    - pavucontrol-qt
+  register: install_pulseaudio
+
+- name: Delete config. After updating pulseaudio config might not be working.
+  file:
+    state: absent
+    path: /home/{{ item }}/.config/pulse
+  loop:
+    - diffy
+    - panic
+  when: install_pulseaudio.changed

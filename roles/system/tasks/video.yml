@@ -1,0 +1,8 @@
+---
+- name: Ensure video stuff is installed
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay
+    name:
+    - mediainfo
+    - ffmpeg

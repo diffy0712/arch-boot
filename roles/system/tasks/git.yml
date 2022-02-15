@@ -1,0 +1,19 @@
+---
+- name: Ensure all git packages are installed
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay
+    name:
+    - git
+    - gitkraken
+  
+- name: Ensure gitconfig is copied to each user
+  template:
+    src: "files/git/{{ item }}/.gitconfig.j2"
+    dest: "/home/{{ item }}/.gitconfig"
+    owner: "{{ item }}"
+    group: "{{ item }}"
+    mode: '0644'
+  loop:
+    - diffy
+    - panic

@@ -1,0 +1,14 @@
+---
+- name: Install variety
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay
+    name:
+    - variety
+
+- name: Ensure nitrogen and feh are not installed
+  pacman:
+    name:
+      - feh
+      # - nitrogen # manjaro-i3-settings package requires it... hmm.
+    state: absent

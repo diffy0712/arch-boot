@@ -1,0 +1,4 @@
+---
+- include_tasks: displays.yml
+- include_tasks: flameshot.yml
+- include_tasks: wallpapers.yml

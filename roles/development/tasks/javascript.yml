@@ -1,0 +1,8 @@
+---
+- name: Ensure packages for javascript development are installed
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay
+    name:
+    - nodejs
+    - yarn

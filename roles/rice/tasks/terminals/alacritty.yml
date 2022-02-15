@@ -1,0 +1,26 @@
+---
+- name: Install Alacritty terminal emulator
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay
+    name:
+    - alacritty
+
+- name: Ensure alacritty config directory exists
+  file:
+    path: "/home/{{ item }}/.config/alacritty"
+    state: directory
+  loop:
+    - diffy
+    - panic
+
+- name: Copy alacritty config files
+  template:
+    src: files/terminals/alacritty/alacritty.yml.j2
+    dest: "/home/{{ item }}/.config/alacritty/alacritty.yml"
+    owner: "{{ item }}"
+    group: "{{ item }}"
+    mode: '0644'
+  loop:
+    - diffy
+    - panic

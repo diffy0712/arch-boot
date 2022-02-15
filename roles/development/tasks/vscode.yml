@@ -1,0 +1,14 @@
+---
+- name: Ensure vscode is installed
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay
+    name:
+    - code
+
+# Ensure vscode extensions are installed
+
+# ensure vscode settings are configured
+
+# ensure vscode keybindings are configured
+

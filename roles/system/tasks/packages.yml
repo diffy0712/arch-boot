@@ -1,0 +1,72 @@
+---
+# @source https://github.com/kewlfft/ansible-aur
+- name: Create the `aur_builder` user
+  become: yes
+  user:
+    uid: 9001
+    name: aur_builder
+    create_home: yes
+    group: wheel
+
+- name: Allow the `aur_builder` user to run `sudo pacman` without a password
+  become: yes
+  lineinfile:
+    path: /etc/sudoers.d/11-install-aur_builder
+    line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
+    create: yes
+    validate: 'visudo -cf %s'
+
+- name: full system upgrade
+  pacman:
+    update_cache: yes
+    upgrade: yes
+
+# Note: Dependency resolution will still include repository packages.
+- name: Upgrade the system using yay, only act on AUR packages.
+  become: yes
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    upgrade: yes
+    use: yay
+    aur_only: yes
+
+- name: Install core packages from aur
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay
+    name:
+    - git
+    - vim
+    - mc
+    - wget
+    - curl
+    - libreoffice
+    - vlc
+    - filezilla
+    - neofetch
+    - chromium
+    - google-chrome
+    - brave-browser
+    - firefox
+    - lsd
+    - slack-desktop
+    - teams
+    - logseq-desktop-bin
+    - discord
+    - transmission-gtk
+    - galculator
+    - gparted
+
+- name: Get default browser
+  ansible.builtin.command: xdg-settings get default-web-browser
+  register: default_browser
+  changed_when: false
+
+- name: "Print default browser"
+  debug:
+    msg: "The default browser is {{ default_browser.stdout }}"
+
+- name: Set default browser to Brave
+  ansible.builtin.command: xdg-settings set default-web-browser brave-browser.desktop
+  register: set_default_browser
+  when: default_browser.stdout != 'brave-browser.desktop'

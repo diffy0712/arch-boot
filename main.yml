@@ -1,0 +1,24 @@
+---
+  - name: "Arch Boot"
+    hosts: localhost
+    connection: local 
+    gather_facts: false
+    become: yes
+    vars_files:
+      - vars/secrets.yml
+    tasks:
+    - name: Make sure system is ready
+      include_role:
+        name: system
+    
+    - name: Make sure rice is up to date
+      include_role:
+        name: rice
+    
+    - name: Make sure everything is installed and configured for development
+      include_role:
+        name: development
+
+    - name: Make sure everything is installed and configured for gaming
+      include_role:
+        name: gaming

@@ -1,0 +1,33 @@
+---
+- name: Ensure core packages are installed and upgraded
+  include_tasks: packages.yml
+
+- name: Ensure all users and groups are set
+  include_tasks: users.yml
+
+- name: Ensure certificates (ssh, openvpn) are at place
+  include_tasks: certs.yml
+
+- name: Ensure all executables are in /bin
+  include_tasks: bin.yml
+
+- name: Ensure video is installed and configured
+  include_tasks: video.yml
+
+- name: Ensure audio is installed and configured
+  include_tasks: audio.yml
+
+- name: Ensure network is installed and configured
+  include_tasks: network.yml
+
+- name: Ensure bluetooth is set up and started
+  include_tasks: bluetooth.yml
+
+- name: Ensure git is installed and configured
+  include_tasks: git.yml
+
+- name: Ensure python is installed and configured
+  include_tasks: python.yml
+
+- name: Ensure docker is installed and configured
+  include_tasks: docker.yml

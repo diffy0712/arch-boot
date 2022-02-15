@@ -1,0 +1,6 @@
+---
+- name: Ensure steam is installed
+  include_tasks: steam.yml
+
+- name: Ensure xbox-controller is compatible with bluetooth
+  include_tasks: xbox-controller.yml

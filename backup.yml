@@ -1,0 +1,25 @@
+---
+  - name: "Backup"
+    hosts: localhost
+    connection: local 
+    gather_facts: false
+    become: yes
+    tasks:
+    ## FIXME: should not run if the device is not mounted
+    ## FIXME: should encrypt the data on backup device
+    - name: Backup the whole common folder
+      ansible.posix.synchronize:
+        archive: yes
+        src: /home/common/
+        dest: /run/media/diffy/Backup
+      tags:
+      - backup-ssd
+    
+    ## TODO
+    # - name: Backup to s3 bucket
+      # ansible.posix.synchronize:
+      #   archive: yes
+      #   src: /home/common/
+      #   dest: /run/media/diffy/Backup
+      # tags:
+      # - backup-s3

@@ -1,0 +1,7 @@
+---
+- name: Install steam
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay
+    name:
+     - steam

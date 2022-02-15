@@ -1,0 +1,18 @@
+---
+- name: Ensure starship prompt is installed
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay
+    name:
+    - starship
+
+- name: Copy starship.toml config
+  template:
+    src: files/terminals/starship/starship.toml.j2
+    dest: "/home/{{ item }}/.config/starship.toml"
+    owner: "{{ item }}"
+    group: "{{ item }}"
+    mode: '0644'
+  loop:
+    - diffy
+    - panic

@@ -1,0 +1,24 @@
+---
+- name: Ensure arandr instaled
+  pacman:
+    name:
+      - arandr
+
+- name: Ensure arandr config directory exists
+  file:
+    path: "/home/{{ item }}/.screenlayout"
+    state: directory
+  loop:
+    - diffy
+    - panic
+
+- name: Ensure configs are in place
+  ansible.builtin.copy:
+    src: "files/.screenlayout/"
+    dest: "/home/{{ item }}/.screenlayout/"
+    owner: "{{ item }}"
+    group: "{{ item }}"
+    mode: '0744'
+  loop:
+    - diffy
+    - panic

@@ -1,0 +1,19 @@
+---
+- name: Ensure zsh and its plugins are installed
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay
+    name:
+    - zsh
+    - zsh-completions
+  
+- name: Copy .zshrc config
+  template:
+    src: files/shells/zsh/.zshrc.j2
+    dest: "/home/{{ item }}/.zshrc"
+    owner: "{{ item }}"
+    group: "{{ item }}"
+    mode: '0644'
+  loop:
+    - diffy
+    - panic

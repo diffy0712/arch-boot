@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Authors: Magyar David <gitlab.com/aether-fox> , Ferencz David <gitlab.com/diffy0712>
+
+# https://unix.stackexchange.com/questions/200169/run-application-without-holding-up-terminal
+# https://unix.stackexchange.com/questions/356534/how-to-run-string-with-values-as-a-command-in-bash
+
+# https://unix.stackexchange.com/questions/3886/difference-between-nohup-disown-and
+# https://www.maketecheasier.com/run-bash-commands-background-linux/
+
+# Running a command with just & pushes it off to the back and keeps it 
+# running as long as the terminal window is open
+# But as a result the background command will continue to print messages
+# into the terminal as you’re using it. 
+# If you’re looking to prevent this, consider redirecting the command to /dev/null
+# This does not prevent the command from closing when the terminal closes.
+
+# https://stackoverflow.com/questions/592620/how-to-check-if-a-program-exists-from-a-bash-script
+if [ -x "$(command -v nohup)" ]; then
+    # However, it’s possible to use disown to disown the running command away from the user.
+    eval " '$*' &>/dev/null & disown";
+else
+    # Unlike the previous commands, using nohup allows you to run a command
+    # in the background and keep it running. How? Nohup bypasses the HUP signal (signal hang up),
+    # making it possible to run commands in the background even when the terminal is off. 
+    # Combine this command with redirection to /dev/null (to prevent nohup from making a nohup.out file), 
+    # and everything goes to the background with one command.
+    eval " nohup '$*' &>/dev/null &";
+fi
+
+# TODOish: So this is not correct this way. Nohup keeps the jobs entry, but the disown version not.
+#       Currently this code is okey, since I dont really utilize the jobs, but once I will
+#       I might need to update this command so it can be forced to keep it or not.

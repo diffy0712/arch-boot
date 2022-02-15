@@ -1,0 +1,30 @@
+---
+- include_tasks: shells/main.yml
+
+- include_tasks: terminals/main.yml
+
+- include_tasks: utils/main.yml
+
+- include_tasks: wm/main.yml
+
+- name: Copy profile config
+  template:
+    src: files/.profile.j2
+    dest: "/home/{{ item }}/.profile"
+    owner: "{{ item }}"
+    group: "{{ item }}"
+    mode: '0644'
+  loop:
+    - diffy
+    - panic
+
+- name: Copy .Xresources config
+  template:
+    src: files/.Xresources.j2
+    dest: "/home/{{ item }}/.Xresources"
+    owner: "{{ item }}"
+    group: "{{ item }}"
+    mode: '0644'
+  loop:
+    - diffy
+    - panic

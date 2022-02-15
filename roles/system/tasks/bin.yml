@@ -1,0 +1,8 @@
+---
+- name: Ensure command files are copied into /bin
+  ansible.builtin.copy:
+    src: "files/bin/"
+    dest: "/bin"
+    owner: "diffy"
+    group: "common"
+    mode: '0775'

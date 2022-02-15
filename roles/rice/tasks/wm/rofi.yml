@@ -1,0 +1,24 @@
+---
+- name: Install i3 tiling window manager
+  pacman:
+    name:
+      - rofi
+
+- name: Ensure rofi config directory exists
+  file:
+    path: "/home/{{ item }}/.config/rofi"
+    state: directory
+  loop:
+    - diffy
+    - panic
+
+- name: Copy rofi config
+  template:
+    src: files/wm/rofi/config.j2
+    dest: "/home/{{ item }}/.config/rofi/config.rasi"
+    owner: "{{ item }}"
+    group: "{{ item }}"
+    mode: '0644'
+  loop:
+    - diffy
+    - panic
