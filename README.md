@@ -62,7 +62,8 @@ Run the playbook to install applications and update the system.
 make run
 ```
 
-> Feel free to comment out role calls in `main.yml` to skip parts of the playbooks.
+> Feel free to comment out role calls in `main.yml` to skip parts of the playbooks.  
+
 > If multiple systems are using this playbook you might want to `git pull` first before running it.
 
 
