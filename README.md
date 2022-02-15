@@ -35,12 +35,15 @@ Some of the main software I use.
 ![](screenshots/desktop.png)
 
 ## First Run
+Just after you installed the latest version of [Manjaro i3 edition](https://manjaro.org/download/#i3) run the following commands to prepare the system, clone the source from gitlab and run the playbook. Resolve the errors that might occur.
+Once the playbook ran successfully the system should be ready for use. 
+
 ```
 sudo pacman -Suy
 sudo pacman -S ansible
 
 sudo mkdir /home/common
-sudo chown $USER:$USER /home/common
+sudo chown $USER:common /home/common
 
 cd /home/common
 git clone git@gitlab.com:diffy0712/arch-boot.git
@@ -53,11 +56,15 @@ make run
 
 ## Maintainance Run
 
-Feel free to comment out role calls in `main.yml` to skip parts of the playbooks.
+Run the playbook to install applications and update the system. 
 
 ```
 make run
 ```
+
+> Feel free to comment out role calls in `main.yml` to skip parts of the playbooks.
+> If multiple systems are using this playbook you might want to `git pull` first before running it.
+
 
 ## Backups
 
