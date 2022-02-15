@@ -76,7 +76,7 @@ TODO
 
 # Why using ansible?
 
-Before I used different methods for managing my dotfiles (yadm, bash scripts), but none of them suited my needs. 
+I've tried different methods for managing my dotfiles (yadm, bash scripts), but none of them suited my needs. 
 
-Using ansible, I can manage my whole system using only one tool.
-Also I am really confortable with ansible since I manage my remote servers using ansible as well.
+Using ansible, I can manage my whole system and keep multiple systems in sync using only one tool.
+Also I am really confortable with ansible since I manage my remote servers using it as well.
