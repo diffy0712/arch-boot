@@ -31,3 +31,6 @@
 
 - name: Ensure docker is installed and configured
   include_tasks: docker.yml
+
+- name: Ensure firwall is installed and configured
+  include_tasks: firewall.yml

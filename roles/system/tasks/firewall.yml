@@ -1,0 +1,28 @@
+---
+- name: Ensures ufw is installed
+  pacman:
+    name: ufw
+    state: present
+
+
+- name: Allow everything and enable UFW
+  ufw:
+    state: enabled
+    logging: 'on'
+
+- name: Ensure ssh connection is enabled
+  ufw:
+    rule: limit
+    port: ssh
+    proto: tcp
+
+- name: Ensure Transmission connection is enabled
+  ufw:
+    rule: allow
+    name: transmission
+
+- name: Enable and make sure running the service ufw
+  ansible.builtin.service:
+    name: ufw
+    enabled: yes
+    state: started
