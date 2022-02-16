@@ -19,7 +19,7 @@ The playbook:
 - Ensures my work and personal user accounts are configured
 - Ensures my development environments are installed, updated and configured
 - Ensures the system is ready for some minimal gaming (mostly steam and xbox controller)
-- TODO: Ensures the firewall is installed, updated and configured
+- Ensures the firewall is installed, updated and configured
 - TODO: Ensures backup scripts and crons are working
 
 ## Introduction
