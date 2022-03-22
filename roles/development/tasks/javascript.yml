@@ -6,3 +6,9 @@
     name:
     - nodejs
     - yarn
+    - webstorm
+  
+- name: Ensure typescript is installed
+  npm:
+    name: typescript
+    global: yes
