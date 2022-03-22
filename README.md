@@ -21,6 +21,7 @@ The playbook:
 - Ensures the system is ready for some minimal gaming (mostly steam and xbox controller)
 - Ensures the firewall is installed, updated and configured
 - TODO: Ensures backup scripts and crons are working
+- TODO: Add npm package installations: onchange
 
 ## Introduction
 
