@@ -1,0 +1,10 @@
+---
+- name: Install ansible helpers
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay
+    name:
+    - yamllint
+    - ansible-lint
+    - molecule
+    - molecule-docker

@@ -2,6 +2,9 @@
 - name: Ensure docker development is ready
   include_tasks: docker.yml
 
+- name: Ensure ansible development is ready
+  include_tasks: ansible.yml
+
 - name: Ensure php development is ready
   include_tasks: php.yml
 
