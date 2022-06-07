@@ -34,7 +34,7 @@ Some of the main software I use.
 - **Application Launcher:** [rofi](https://github.com/davatorium/rofi)
 - **Terminal:** [Alacritty](https://alacritty.org/)
 
-![](screenshots/desktop.png)
+![](screenshots/desktop.jpg)
 
 ## First Run
 Just after you installed the latest version of [Manjaro i3 edition](https://manjaro.org/download/#i3) run the following commands to prepare the system, clone the source from gitlab and run the playbook. Resolve the errors that might occur.
