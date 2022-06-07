@@ -1,14 +1,15 @@
+# Linux Os maintainance Automation
+![Ansible](https://img.shields.io/badge/ansible-%231A1918.svg?style=for-the-badge&logo=ansible&logoColor=white)
+![Arch](https://img.shields.io/badge/Arch%20Linux-1793D1?logo=arch-linux&logoColor=fff&style=for-the-badge)
 <!-- TOC -->
-
 - [Linux Os maintainance Automation](#linux-os-maintainance-automation)
-    - [Introduction](#introduction)
-    - [First Run](#first-run)
-    - [Maintainance Run](#maintainance-run)
-    - [Backups](#backups)
+  - [Introduction](#introduction)
+  - [First Run](#first-run)
+  - [Maintainance Run](#maintainance-run)
+  - [Backups](#backups)
 - [Why using ansible?](#why-using-ansible)
 
 <!-- /TOC -->
-# Linux Os maintainance Automation
 
 This ansible playbook will set up and maintain my personal linux environment.
 
