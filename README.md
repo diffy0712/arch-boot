@@ -48,7 +48,7 @@ sudo mkdir /home/common
 sudo chown $USER:common /home/common
 
 cd /home/common
-git clone git@gitlab.com:diffy0712/arch-boot.git
+git clone git@github.com:diffy0712/arch-boot.git
 
 cd arch-boot
 
