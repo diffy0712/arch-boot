@@ -141,10 +141,13 @@ bindsym $mod+Print --release exec --no-startup-id flameshot gui
 ################################################################################################
 
 # Switch monitors to 16-9-monitor only
-bindsym $mod+Mod1+8 exec --no-startup-id "~/.screenlayout/16-9-monitor.sh; notify-send 'Arandr switch to monitor config: 16-9 display only'"
+bindsym $mod+Mod1+7 exec --no-startup-id "~/.screenlayout/16-9-dp.sh; notify-send 'Arandr switch to monitor config: 16-9 display only'"
+
+# Switch monitors to 21-9-monitor only
+bindsym $mod+Mod1+8 exec --no-startup-id "~/.screenlayout/21-9-dp.sh; notify-send 'Arandr switch to monitor config: 21-9 display only'"
 
 # Switch monitors to laptop only
-bindsym $mod+Mod1+9 exec --no-startup-id "~/.screenlayout/laptop-monitor.sh; notify-send 'Arandr switch to monitor config: laptop display only'"
+bindsym $mod+Mod1+9 exec --no-startup-id "~/.screenlayout/laptop.sh; notify-send 'Arandr switch to monitor config: laptop display only'"
 
 ################################################################################################
 ## Opening Software Keybindings 
