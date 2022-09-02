@@ -33,6 +33,7 @@ Some of the main software I use.
 - **Bar:** [polybar](https://github.com/polybar/polybar)
 - **Application Launcher:** [rofi](https://github.com/davatorium/rofi)
 - **Terminal:** [Alacritty](https://alacritty.org/)
+- Neovim: [Neovim](https://github.com/neovim/neovim)
 
 ![](screenshots/desktop.jpg)
 
@@ -42,7 +43,8 @@ Once the playbook ran successfully the system should be ready for use.
 
 ```
 sudo pacman -Suy
-sudo pacman -S ansible
+sudo pacman -S ansible yay
+sudo yay -S just
 
 sudo mkdir /home/common
 sudo chown $USER:common /home/common
@@ -52,8 +54,8 @@ git clone git@github.com:diffy0712/arch-boot.git
 
 cd arch-boot
 
-make idep
-make run
+just idep
+just run
 ```
 
 ## Maintainance Run

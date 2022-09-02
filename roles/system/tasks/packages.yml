@@ -57,6 +57,7 @@
     - galculator
     - gparted
     - viber
+    - just
 
 - name: Get default browser
   ansible.builtin.command: xdg-settings get default-web-browser
