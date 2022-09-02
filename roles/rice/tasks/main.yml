@@ -7,6 +7,8 @@
 
 - include_tasks: wm/main.yml
 
+- include_tasks: nvim/main.yml
+
 - name: Copy profile config
   template:
     src: files/.profile.j2

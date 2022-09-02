@@ -1,0 +1,18 @@
+---
+- name: Ensure neo vim and its plugins are installed
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay
+    name:
+    - neovim
+    - nvim-packer-git
+  
+- name: Copy nvim config
+  template:
+    src: files/nvim/init.lua.j2
+    dest: "/home/{{ item }}/.config/nvim/init.lua"
+    owner: "{{ item }}"
+    group: "{{ item }}"
+    mode: '0644'
+  loop:
+    - diffy
