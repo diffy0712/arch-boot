@@ -121,7 +121,7 @@ map('i', '<C-A>', '<ESC>I')
 
 
 
--- require('lualine').setup()
+require('lualine').setup()
 
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
@@ -143,6 +143,7 @@ require("nvim-tree").setup({
 
 db = require('dashboard')
 
+require 'colorizer'.setup()
 
 -- PLUGINS
 -- Only required if you have packer configured as `opt`
@@ -151,11 +152,13 @@ require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  use 'norcalli/nvim-colorizer.lua'
+
   -- A better status line
---   use {
---     'nvim-lualine/lualine.nvim',
---     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
---   }
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
 
   use {
     'kyazdani42/nvim-tree.lua',
