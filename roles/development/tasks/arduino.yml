@@ -1,0 +1,12 @@
+---
+- name: Install arduino
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay
+    name:
+    - arduino
+
+- name: Install pip packages
+  ansible.builtin.pip:
+    name:
+    - pyserial
