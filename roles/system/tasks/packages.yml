@@ -58,6 +58,9 @@
     - gparted
     - viber
     - just
+    - exa
+    - bat
+    - procs
 
 - name: Get default browser
   ansible.builtin.command: xdg-settings get default-web-browser
