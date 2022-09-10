@@ -111,15 +111,24 @@ A.nvim_create_autocmd('TextYankPost', {
 })
 
 -- KEYBINDINGS
-local function map(m, k, v)
-    vim.keymap.set(m, k, v, { silent = true })
+-- local function map(m, k, v)
+--    vim.keymap.set(m, k, v, { silent = true })
+-- end
+
+-- Functional wrapper for mapping custom keybindings
+function map(mode, lhs, rhs, opts)
+    local options = { noremap = true }
+    if opts then
+        options = vim.tbl_extend("force", options, opts)
+    end
+    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 -- Mimic shell movements
 map('i', '<C-E>', '<ESC>A')
 map('i', '<C-A>', '<ESC>I')
 
-
+map("n", "<M-1>", ":NvimTreeToggle<CR>")
 
 require('lualine').setup()
 
