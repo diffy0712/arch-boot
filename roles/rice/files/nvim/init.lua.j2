@@ -130,6 +130,14 @@ map('i', '<C-A>', '<ESC>I')
 
 map("n", "<M-1>", ":NvimTreeToggle<CR>")
 
+
+map("n", "<leader>ff", "<CMD>Telescope find_files<CR>")
+map("n", "<leader>fg", "<CMD>Telescope live_grep<CR>")
+map("n", "<leader>fb", "<CMD>Telescope buffers<CR>")
+map("n", "<leader>fh", "<CMD>Telescope help_tags<CR>")
+
+
+
 require('lualine').setup()
 
 require("nvim-tree").setup({
@@ -212,6 +220,12 @@ require('packer').startup(function()
         }
     end
     }
+
+use "nvim-lua/plenary.nvim"
+use {
+  'nvim-telescope/telescope.nvim', tag = '0.1.0',
+}
+
 
 use {'glepnir/dashboard-nvim'}
 end)
