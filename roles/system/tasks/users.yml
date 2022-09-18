@@ -17,20 +17,10 @@
     uid: 1000
     create_home: yes
     shell: /bin/zsh
-    groups: diffy, wheel
+    groups: diffy, wheel, uucp
     append: yes
 
-- name: Add the user 'panic' with a zsh shell, appending the group 'panic' to the user's groups
-  user:
-    name: panic
-    password: "{{panic_password}}"
-    uid: 1001
-    create_home: yes
-    shell: /bin/zsh
-    groups: panic, wheel
-    append: yes
-
-# Common group is for this ansible playbook, so diffy and panic can both run it.
+# Common group is for this ansible playbook, so diffy can both run it.
 - name: Ensure group "common" exists with correct gid
   group:
     name: common
