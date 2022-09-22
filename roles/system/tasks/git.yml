@@ -6,7 +6,8 @@
     name:
     - git
     - gitkraken
-  
+    - gitui
+    
 - name: Ensure gitconfig is copied to each user
   template:
     src: "files/git/{{ item }}/.gitconfig.j2"
@@ -16,4 +17,3 @@
     mode: '0644'
   loop:
     - diffy
-    - panic

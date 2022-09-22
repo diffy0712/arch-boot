@@ -20,11 +20,3 @@
     append: yes
   loop:
     - diffy
-    - panic
-
-- name: Ensure docker config directory exists
-  file:
-    path: "/home/{{ item }}/.docker"
-    state: directory
-  loop:
-    - panic

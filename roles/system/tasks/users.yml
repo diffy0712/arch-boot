@@ -1,15 +1,5 @@
 ---
-## Group and user `panic` is for work
-## Group and user `diffy` is for personal projects, learning etc..
 ## Group `common` is to share files between my users
-
-## Should skip if group exists
-- name: Ensure group "panic" exists with correct gid
-  group:
-    name: panic
-    state: present
-    gid: 1001
-
 - name: Add the user 'diffy' with a zsh shell, appending the group 'diffy' to the user's groups
   user:
     name: diffy
@@ -20,13 +10,6 @@
     groups: diffy, wheel, uucp
     append: yes
 
-# Common group is for this ansible playbook, so diffy can both run it.
-- name: Ensure group "common" exists with correct gid
-  group:
-    name: common
-    state: present
-    gid: 2000
-
 - name: adding existing user '{{ item }}' to group common
   user:
     name: "{{ item }}"
@@ -34,7 +17,6 @@
     append: yes
   loop:
     - diffy
-    - panic
 
 - name: Ensure common folder exists
   file:
@@ -44,17 +26,9 @@
     group: common
     mode: '770'
 
-- name: Ensure Documents folder exists
+- name: Ensure Important folder exists
   file:
-    path: "/home/common/Documents"
-    state: directory
-    owner: diffy
-    group: common
-    mode: '770'
-
-- name: Ensure Videos folder exists
-  file:
-    path: "/home/common/Videos"
+    path: "/home/common/Important"
     state: directory
     owner: diffy
     group: common

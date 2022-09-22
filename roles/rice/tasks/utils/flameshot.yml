@@ -12,7 +12,6 @@
     state: directory
   loop:
     - diffy
-    - panic
 
 - name: Copy flameshot config
   template:
@@ -23,4 +22,3 @@
     mode: '0644'
   loop:
     - diffy
-    - panic
