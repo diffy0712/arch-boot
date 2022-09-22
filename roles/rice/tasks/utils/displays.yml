@@ -10,7 +10,6 @@
     state: directory
   loop:
     - diffy
-    - panic
 
 - name: Ensure configs are in place
   ansible.builtin.copy:
@@ -21,4 +20,3 @@
     mode: '0744'
   loop:
     - diffy
-    - panic

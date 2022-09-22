@@ -14,7 +14,6 @@
     state: directory
   loop:
     - diffy
-    - panic
 
 - name: Copy polybar config
   template:
@@ -25,7 +24,6 @@
     mode: '0644'
   loop:
     - diffy
-    - panic
 
 - name: Copy polybar config lanuncher
   template:
@@ -36,4 +34,3 @@
     mode: '0775'
   loop:
     - diffy
-    - panic

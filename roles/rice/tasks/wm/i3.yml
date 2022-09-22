@@ -10,7 +10,6 @@
     state: directory
   loop:
     - diffy
-    - panic
 
 - name: Copy i3 config
   template:
@@ -21,7 +20,6 @@
     mode: '0644'
   loop:
     - diffy
-    - panic
 
 - name: Install polybar
   become_user: aur_builder
@@ -36,7 +34,6 @@
     state: directory
   loop:
     - diffy
-    - panic
 
 - name: Copy polybar config
   template:
@@ -47,8 +44,6 @@
     mode: '0644'
   loop:
     - diffy
-    - panic
-
 
 ## https://github.com/polybar/polybar/wiki
 ## start with polybar example

@@ -47,6 +47,7 @@ sudo pacman -S ansible yay
 sudo yay -S just
 
 sudo mkdir /home/common
+sudo groupadd common
 sudo chown $USER:common /home/common
 
 cd /home/common

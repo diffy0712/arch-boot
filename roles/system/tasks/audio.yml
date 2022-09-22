@@ -16,5 +16,4 @@
     path: /home/{{ item }}/.config/pulse
   loop:
     - diffy
-    - panic
   when: install_pulseaudio.changed
