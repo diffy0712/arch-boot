@@ -44,8 +44,3 @@
     mode: '0644'
   loop:
     - diffy
-
-## https://github.com/polybar/polybar/wiki
-## start with polybar example
-## 1. Configure bar
-## 2. Start on i3

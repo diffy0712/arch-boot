@@ -18,7 +18,6 @@
     mode: '0644'
   loop:
     - diffy
-    - panic
 
 - name: Copy .Xresources config
   template:
@@ -29,4 +28,3 @@
     mode: '0644'
   loop:
     - diffy
-    - panic
