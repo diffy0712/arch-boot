@@ -6,11 +6,12 @@
     name:
     - neovim
     - nvim-packer-git
-  
+      - rice
+
 - name: Copy nvim config
-  template:
-    src: files/nvim/init.lua.j2
-    dest: "/home/{{ item }}/.config/nvim/init.lua"
+  copy:
+    src: files/nvim/
+    dest: "/home/{{ item }}/.config/nvim"
     owner: "{{ item }}"
     group: "{{ item }}"
     mode: '0644'
