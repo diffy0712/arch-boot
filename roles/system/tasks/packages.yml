@@ -44,9 +44,7 @@
     - vlc
     - filezilla
     - neofetch
-    - chromium
     - google-chrome
-    - brave-browser
     - firefox
     - teams
     - discord
@@ -58,6 +56,8 @@
     - exa
     - bat
     - procs
+    - zsh
+    - code
 
 - name: Get default browser
   ansible.builtin.command: xdg-settings get default-web-browser
@@ -68,7 +68,7 @@
   debug:
     msg: "The default browser is {{ default_browser.stdout }}"
 
-- name: Set default browser to Brave
-  ansible.builtin.command: xdg-settings set default-web-browser brave-browser.desktop
+- name: Set default browser to Firefox
+  ansible.builtin.command: xdg-settings set default-web-browser firefox.desktop
   register: set_default_browser
-  when: default_browser.stdout != 'brave-browser.desktop'
+  when: default_browser.stdout != 'firefox.desktop'

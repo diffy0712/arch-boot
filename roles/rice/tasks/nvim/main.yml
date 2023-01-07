@@ -6,7 +6,6 @@
     name:
     - neovim
     - nvim-packer-git
-      - rice
 
 - name: Copy nvim config
   copy:

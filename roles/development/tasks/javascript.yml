@@ -5,8 +5,8 @@
     use: yay
     name:
     - nodejs
+    - npm
     - yarn
-    - webstorm
   
 - name: Ensure typescript is installed
   npm:

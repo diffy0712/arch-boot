@@ -1,14 +1,14 @@
 ---
 ## Group `common` is to share files between my users
-- name: Add the user 'diffy' with a zsh shell, appending the group 'diffy' to the user's groups
-  user:
-    name: diffy
-    password: "{{diffy_password}}"
-    uid: 1000
-    create_home: yes
-    shell: /bin/zsh
-    groups: diffy, wheel, uucp
-    append: yes
+# - name: Add the user 'diffy' with a zsh shell, appending the group 'diffy' to the user's groups
+#   user:
+#     name: diffy
+#     password: "{{diffy_password}}"
+#     uid: 1000
+#     create_home: yes
+#     shell: /bin/zsh
+#     groups: diffy, wheel, uucp
+#     append: yes
 
 - name: adding existing user '{{ item }}' to group common
   user:

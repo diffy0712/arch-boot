@@ -28,7 +28,7 @@ The playbook:
 
 Some of the main software I use.
 
-- **OS:** [manjaro i3 edition](https://manjaro.org/download/#i3)
+- **OS:** [Endeavouros i3 edition](https://discovery.endeavouros.com/)
 - **Window Manager:** [i3](https://i3wm.org/)
 - **Bar:** [polybar](https://github.com/polybar/polybar)
 - **Application Launcher:** [rofi](https://github.com/davatorium/rofi)
@@ -38,7 +38,7 @@ Some of the main software I use.
 ![](screenshots/desktop.jpg)
 
 ## First Run
-Just after you installed the latest version of [Manjaro i3 edition](https://manjaro.org/download/#i3) run the following commands to prepare the system, clone the source from gitlab and run the playbook. Resolve the errors that might occur.
+Just after you installed the latest version of [Endeavouros i3 edition](https://discovery.endeavouros.com/) run the following commands to prepare the system, clone the source from gitlab and run the playbook. Resolve the errors that might occur.
 Once the playbook ran successfully the system should be ready for use. 
 
 ```
@@ -64,7 +64,7 @@ just run
 Run the playbook to install applications and update the system. 
 
 ```
-make run
+just run
 ```
 
 > Feel free to comment out role calls in `main.yml` to skip parts of the playbooks.  

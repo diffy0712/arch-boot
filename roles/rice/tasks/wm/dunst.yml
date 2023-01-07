@@ -1,4 +1,4 @@
-- name: Install picom compositor
+- name: Install dunst
   become_user: aur_builder
   kewlfft.aur.aur:
     use: yay

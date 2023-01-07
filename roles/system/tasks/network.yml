@@ -1,7 +1,0 @@
----
-#- name: Ensure protonvpn is installed
-#  become_user: aur_builder
-#  kewlfft.aur.aur:
-#    use: yay
-#    name:
-#     - protonvpn

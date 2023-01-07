@@ -5,4 +5,5 @@
     use: yay
     name:
     - python
-    - python2
+    - python-pip
+    - python-setuptools

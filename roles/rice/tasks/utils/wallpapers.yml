@@ -4,11 +4,6 @@
   kewlfft.aur.aur:
     use: yay
     name:
+    - feh
+    - nitrogen
     - variety
-
-- name: Ensure nitrogen and feh are not installed
-  pacman:
-    name:
-      - feh
-      # - nitrogen # manjaro-i3-settings package requires it... hmm.
-    state: absent

@@ -2,6 +2,9 @@
 - name: Ensure docker development is ready
   include_tasks: docker.yml
 
+- name: Ensure python development is ready
+  include_tasks: python.yml
+
 - name: Ensure arduino development is ready
   include_tasks: arduino.yml
 
@@ -11,11 +14,8 @@
 - name: Ensure php development is ready
   include_tasks: php.yml
 
-- name: Ensure dotnet development is ready
-  include_tasks: dotnet.yml
-
-- name: Ensure python development is ready
-  include_tasks: python.yml
+# - name: Ensure dotnet development is ready
+#   include_tasks: dotnet.yml
 
 - name: Ensure javascript development is ready
   include_tasks: javascript.yml

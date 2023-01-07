@@ -6,6 +6,7 @@
     name:
      - bluez
      - bluez-utils
+     - blueman
 
 - name: Enable and make sure running the service bluetooth
   ansible.builtin.service:

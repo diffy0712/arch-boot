@@ -6,7 +6,7 @@
 
 - name: Ensure i3 config directory exists
   file:
-    path: "/home/{{ item }}/.i3"
+    path: "/home/{{ item }}/.config/i3"
     state: directory
   loop:
     - diffy
@@ -14,7 +14,7 @@
 - name: Copy i3 config
   template:
     src: files/wm/i3/config.j2
-    dest: "/home/{{ item }}/.i3/config"
+    dest: "/home/{{ item }}/.config/i3/config"
     owner: "{{ item }}"
     group: "{{ item }}"
     mode: '0644'

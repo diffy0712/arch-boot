@@ -17,20 +17,11 @@
 - name: Ensure audio is installed and configured
   include_tasks: audio.yml
 
-- name: Ensure network is installed and configured
-  include_tasks: network.yml
-
 - name: Ensure bluetooth is set up and started
   include_tasks: bluetooth.yml
 
 - name: Ensure git is installed and configured
   include_tasks: git.yml
 
-- name: Ensure python is installed and configured
-  include_tasks: python.yml
-
-- name: Ensure docker is installed and configured
-  include_tasks: docker.yml
-
-- name: Ensure firwall is installed and configured
-  include_tasks: firewall.yml
+# - name: Ensure firwall is installed and configured
+#   include_tasks: firewall.yml

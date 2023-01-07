@@ -1,5 +1,5 @@
 ---
-- name: Install i3 tiling window manager
+- name: Install rofi
   pacman:
     name:
       - rofi
