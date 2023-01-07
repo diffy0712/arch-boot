@@ -1,0 +1,6 @@
+---
+- name: Ensure rustup is instaled
+  pacman:
+    name:
+      - rustup
+## might need to run 'rustup default stable'

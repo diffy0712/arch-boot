@@ -22,3 +22,6 @@
 
 - name: Ensure vscode development is ready
   include_tasks: vscode.yml
+
+- name: Ensure rust development is ready
+  include_tasks: rust.yml
