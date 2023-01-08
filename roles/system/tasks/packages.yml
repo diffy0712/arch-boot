@@ -38,6 +38,7 @@
     - git
     - vim
     - mc
+    - xsel
     - wget
     - curl
     - libreoffice

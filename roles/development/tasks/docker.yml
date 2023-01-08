@@ -6,6 +6,7 @@
     name:
     - docker
     - docker-compose
+    - ctop
 
 - name: Enable and make sure running the service docker
   ansible.builtin.service:
