@@ -8,6 +8,7 @@
     - phpstorm
     - phpstorm-jre
     - composer
+    - symfony-cli
 
 - name: Ensure php.ini is copied
   copy:
