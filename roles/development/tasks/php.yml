@@ -5,6 +5,9 @@
     use: yay
     name:
     - php
+    - php-gd
+    - php-pgsql
+    - xdebug
     - phpstorm
     - phpstorm-jre
     - composer
