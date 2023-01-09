@@ -17,8 +17,3 @@
   npm:
     name: jest
     global: yes
-  
-- name: Ensure sonar-scanner is installed
-  npm:
-    name: sonar-scanner
-    global: yes

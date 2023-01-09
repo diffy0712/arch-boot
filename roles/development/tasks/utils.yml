@@ -1,0 +1,13 @@
+---
+- name: Ensure utility packages are installed
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay
+    name:
+    - sonar-scanner
+
+- name: Creating a symlink
+  ansible.builtin.file:
+    src: "/opt/sonar-scanner/bin/sonar-scanner"
+    dest: "/bin/sonar-scanner"
+    state: link
