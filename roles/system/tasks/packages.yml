@@ -39,6 +39,7 @@
     - vim
     - mc
     - xsel
+    - htop
     - wget
     - curl
     - libreoffice
