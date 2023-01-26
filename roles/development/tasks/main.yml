@@ -14,8 +14,8 @@
 - name: Ensure php development is ready
   include_tasks: php.yml
 
-# - name: Ensure dotnet development is ready
-#   include_tasks: dotnet.yml
+- name: Ensure dotnet development is ready
+  include_tasks: dotnet.yml
 
 - name: Ensure javascript development is ready
   include_tasks: javascript.yml
