@@ -26,6 +26,8 @@
 - name: Ensure rust development is ready
   include_tasks: rust.yml
 
+- name: Ensure rust development is ready
+  include_tasks: golang.yml
 
 - name: Ensure utils for development is ready
   include_tasks: utils.yml

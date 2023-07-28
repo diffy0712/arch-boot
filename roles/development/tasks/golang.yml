@@ -1,0 +1,4 @@
+- name: Ensure go development dependencies are installed
+  pacman:
+    name:
+      - go
