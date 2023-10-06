@@ -1,0 +1,12 @@
+---
+  - name: "Arch Boot - Development"
+    hosts: localhost
+    connection: local 
+    gather_facts: false
+    become: yes
+    vars_files:
+      - vars/secrets.yml
+    tasks:
+    - name: Make sure everything is installed and configured for development
+      include_role:
+        name: development

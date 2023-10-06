@@ -14,8 +14,16 @@ icollections:
 ucollections:
 	ansible-galaxy collection install -r requirements.collections.yml -p collections --force
 
-run:
-	ansible-playbook main.yml --ask-become-pass --vault-password-file .vault-pass
+run: system rice dev
+
+system:
+	ansible-playbook system.yml --ask-become-pass --vault-password-file .vault-pass
+
+rice:
+	ansible-playbook rice.yml --ask-become-pass --vault-password-file .vault-pass
+
+dev:
+	ansible-playbook development.yml --ask-become-pass --vault-password-file .vault-pass
 
 backup:
 	ansible-playbook backup.yml --ask-become-pass --vault-password-file .vault-pass

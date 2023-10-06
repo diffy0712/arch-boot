@@ -3,4 +3,12 @@
   pacman:
     name:
       - rustup
+
+# - name: Ensure rust development dependencies are installed
+#   kewlfft.aur.aur:
+#     use: yay
+#     name:
+#       - trunk
+      
 ## might need to run 'rustup default stable'
+## rustup component add clippy

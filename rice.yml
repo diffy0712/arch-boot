@@ -1,0 +1,12 @@
+---
+  - name: "Arch Boot - Rice"
+    hosts: localhost
+    connection: local 
+    gather_facts: false
+    become: yes
+    vars_files:
+      - vars/secrets.yml
+    tasks:    
+    - name: Make sure rice is up to date
+      include_role:
+        name: rice

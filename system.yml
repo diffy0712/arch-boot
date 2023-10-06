@@ -1,5 +1,5 @@
 ---
-  - name: "Arch Boot"
+  - name: "Arch Boot - System install and update"
     hosts: localhost
     connection: local 
     gather_facts: false
@@ -10,14 +10,6 @@
     - name: Make sure system is ready
       include_role:
         name: system
-    
-    - name: Make sure rice is up to date
-      include_role:
-        name: rice
-    
-    - name: Make sure everything is installed and configured for development
-      include_role:
-        name: development
 
     - name: Make sure everything is installed and configured for gaming
       include_role:
