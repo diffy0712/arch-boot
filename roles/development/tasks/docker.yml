@@ -14,10 +14,8 @@
     enabled: yes
     state: started
 
-- name: adding existing user '{{ item }}' to group docker
+- name: adding existing user '{{ system_user_name }}' to group docker
   user:
-    name: "{{ item }}"
+    name: "{{ system_user_name }}"
     groups: docker
     append: yes
-  loop:
-    - diffy
