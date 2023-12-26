@@ -13,7 +13,5 @@
 - name: Delete config. After updating pulseaudio config might not be working.
   file:
     state: absent
-    path: /home/{{ item }}/.config/pulse
-  loop:
-    - diffy
+    path: /home/{{ system_user_name }}/.config/pulse
   when: install_pulseaudio.changed

@@ -1,3 +1,9 @@
+init: 
+	just idep
+	pacman -Suy
+	pacman -S ansible yay
+	yay -S just
+
 idep: iroles icollections
 
 udep: uroles ucollections
@@ -17,13 +23,13 @@ ucollections:
 run: system rice dev
 
 system:
-	ansible-playbook system.yml --ask-become-pass --vault-password-file .vault-pass
+	ansible-playbook system.yml --ask-become-pass --vault-password-file .vault_pass
 
 rice:
-	ansible-playbook rice.yml --ask-become-pass --vault-password-file .vault-pass
+	ansible-playbook rice.yml --ask-become-pass --vault-password-file .vault_pass
 
 dev:
-	ansible-playbook development.yml --ask-become-pass --vault-password-file .vault-pass
+	ansible-playbook development.yml --ask-become-pass --vault-password-file .vault_pass
 
 backup:
-	ansible-playbook backup.yml --ask-become-pass --vault-password-file .vault-pass
+	ansible-playbook backup.yml --ask-become-pass --vault-password-file .vault_pass

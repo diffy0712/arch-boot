@@ -17,7 +17,7 @@ The playbook:
 
 - Ensures all packages are installed, updated and configured as I need
 - Ensures all hardware drivers are installed and working
-- Ensures my work and personal user accounts are configured
+- Ensures my personal user account are configured correctly
 - Ensures my development environments are installed, updated and configured
 - Ensures the system is ready for some minimal gaming (mostly steam and xbox controller)
 - Ensures the firewall is installed, updated and configured
@@ -37,24 +37,14 @@ Some of the main software I use.
 ![](screenshots/desktop.jpg)
 
 ## First Run
-Just after you installed the latest version of [Endeavouros i3 edition](https://discovery.endeavouros.com/) run the following commands to prepare the system, clone the source from gitlab and run the playbook. Resolve the errors that might occur.
+Just after you installed the latest version of [Endeavouros i3 edition](https://discovery.endeavouros.com/) run the following commands to prepare the system, clone the source from github and run the playbook. Resolve the errors that might occur.
 Once the playbook ran successfully the system should be ready for use. 
 
 ```
-sudo pacman -Suy
-sudo pacman -S ansible yay
-sudo yay -S just
+git clone git@github.com:diffy0712/arch-boot.git ~/arch-boot && cd arch-boot
 
-sudo mkdir /home/common
-sudo groupadd common
-sudo chown $USER:common /home/common
+sudo just init
 
-cd /home/common
-git clone git@github.com:diffy0712/arch-boot.git
-
-cd arch-boot
-
-just idep
 just run
 ```
 

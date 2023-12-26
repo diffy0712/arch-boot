@@ -1,10 +1,7 @@
 ---
 - name: Ensure core packages are installed and upgraded
   include_tasks: packages.yml
-
-- name: Ensure all users and groups are set
-  include_tasks: users.yml
-
+  
 - name: Ensure certificates (ssh, openvpn) are at place
   include_tasks: certs.yml
 

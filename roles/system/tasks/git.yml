@@ -10,10 +10,8 @@
     
 - name: Ensure gitconfig is copied to each user
   template:
-    src: "files/git/{{ item }}/.gitconfig.j2"
-    dest: "/home/{{ item }}/.gitconfig"
-    owner: "{{ item }}"
-    group: "{{ item }}"
+    src: "files/git/.gitconfig.j2"
+    dest: "/home/{{ system_user_name }}/.gitconfig"
+    owner: "{{ system_user_name }}"
+    group: "{{ system_user_name }}"
     mode: '0644'
-  loop:
-    - diffy

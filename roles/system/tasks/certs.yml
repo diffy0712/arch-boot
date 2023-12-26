@@ -1,20 +1,8 @@
 ---
 - name: Ensure ssh key files are in place for users
   ansible.builtin.copy:
-    src: "files/certs/{{ item }}/.ssh/"
-    dest: "/home/{{ item }}/.ssh"
-    owner: "{{ item }}"
-    group: "{{ item }}"
+    src: "files/certs/.ssh/"
+    dest: "/home/{{ system_user_name }}/.ssh"
+    owner: "{{ system_user_name }}"
+    group: "{{ system_user_name }}"
     mode: '600'
-  loop:
-    - diffy
-
-#- name: Ensure openvpn key files are in place for users
-#  ansible.builtin.copy:
-#    src: "./files/certs/{{ item }}/openvpn/"
-#    dest: "/home/{{ item }}/.cert/"
-#    owner: "{{ item }}"
-#    group: "{{ item }}"
-#    mode: '600'
-#  loop:
-#    - diffy
