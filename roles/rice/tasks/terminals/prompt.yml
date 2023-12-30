@@ -6,10 +6,10 @@
     name:
     - starship
 
-- name: Copy starship.toml config
-  template:
-    src: files/terminals/starship/starship.toml.j2
-    dest: "/home/{{ system_user_name }}/.config/starship.toml"
+- name: Ensure configs are in place
+  copy:
+    src: "files/terminals/starship/"
+    dest: "/home/{{ system_user_name }}/.config/starship/"
     owner: "{{ system_user_name }}"
     group: "{{ system_user_name }}"
     mode: '0644'
