@@ -7,17 +7,13 @@
 
 - name: Ensure picom config directory exists
   file:
-    path: "/home/{{ item }}/.config/picom"
+    path: "/home/{{ system_user_name }}/.config/picom"
     state: directory
-  loop:
-    - diffy
 
 - name: Copy picom config
   template:
     src: files/wm/picom/picom.conf.j2
-    dest: "/home/{{ item }}/.config/picom/picom.conf"
-    owner: "{{ item }}"
-    group: "{{ item }}"
+    dest: "/home/{{ system_user_name }}/.config/picom/picom.conf"
+    owner: "{{ system_user_name }}"
+    group: "{{ system_user_name }}"
     mode: '0644'
-  loop:
-    - diffy

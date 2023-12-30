@@ -8,17 +8,13 @@
 
 - name: Ensure alacritty config directory exists
   file:
-    path: "/home/{{ item }}/.config/alacritty"
+    path: "/home/{{ system_user_name }}/.config/alacritty"
     state: directory
-  loop:
-    - diffy
 
 - name: Copy alacritty config files
   template:
     src: files/terminals/alacritty/alacritty.yml.j2
-    dest: "/home/{{ item }}/.config/alacritty/alacritty.yml"
-    owner: "{{ item }}"
-    group: "{{ item }}"
+    dest: "/home/{{ system_user_name }}/.config/alacritty/alacritty.yml"
+    owner: "{{ system_user_name }}"
+    group: "{{ system_user_name }}"
     mode: '0644'
-  loop:
-    - diffy

@@ -10,9 +10,7 @@
 - name: Copy .zshrc config
   template:
     src: files/shells/zsh/.zshrc.j2
-    dest: "/home/{{ item }}/.zshrc"
-    owner: "{{ item }}"
-    group: "{{ item }}"
+    dest: "/home/{{ system_user_name }}/.zshrc"
+    owner: "{{ system_user_name }}"
+    group: "{{ system_user_name }}"
     mode: '0644'
-  loop:
-    - diffy

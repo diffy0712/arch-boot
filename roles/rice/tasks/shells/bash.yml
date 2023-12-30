@@ -2,30 +2,26 @@
 - name: Ensure .bashrc is configured
   ansible.builtin.copy:
     src: "files/shells/bash/.bashrc"
-    dest: "/home/{{ item }}/.bashrc"
-    owner: "{{ item }}"
-    group: "{{ item }}"
+    dest: "/home/{{ system_user_name }}/.bashrc"
+    owner: "{{ system_user_name }}"
+    group: "{{ system_user_name }}"
     mode: '0644'
-  loop:
-    - diffy
 
 - name: Ensure .bash_profile is configured
   ansible.builtin.copy:
     src: "files/shells/bash/.bash_profile"
-    dest: "/home/{{ item }}/.bash_profile"
-    owner: "{{ item }}"
-    group: "{{ item }}"
+    dest: "/home/{{ system_user_name }}/.bash_profile"
+    owner: "{{ system_user_name }}"
+    group: "{{ system_user_name }}"
     mode: '0644'
-  loop:
-    - diffy
 
 
 - name: Ensure .bash_logout is configured
   ansible.builtin.copy:
     src: "files/shells/bash/.bash_logout"
-    dest: "/home/{{ item }}/.bash_logout"
-    owner: "{{ item }}"
-    group: "{{ item }}"
+    dest: "/home/{{ system_user_name }}/.bash_logout"
+    owner: "{{ system_user_name }}"
+    group: "{{ system_user_name }}"
     mode: '0644'
   loop:
     - diffy
@@ -33,9 +29,7 @@
 - name: Ensure configs are in place
   ansible.builtin.copy:
     src: "files/shells/bash/config/"
-    dest: "/home/{{ item }}/.config/bash/"
-    owner: "{{ item }}"
-    group: "{{ item }}"
+    dest: "/home/{{ system_user_name }}/.config/bash/"
+    owner: "{{ system_user_name }}"
+    group: "{{ system_user_name }}"
     mode: '0644'
-  loop:
-    - diffy

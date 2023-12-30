@@ -7,17 +7,14 @@
 
 - name: Ensure dunst config directory exists
   file:
-    path: "/home/{{ item }}/.config/dunst"
+    path: "/home/{{ system_user_name }}/.config/dunst"
     state: directory
-  loop:
-    - diffy
 
-- name: Copy dunst config
-  template:
-    src: files/wm/dunst/dunstrc.j2
-    dest: "/home/{{ item }}/.config/dunst/dunstrc"
-    owner: "{{ item }}"
-    group: "{{ item }}"
+- name: Ensure configs are in place
+  ansible.builtin.copy:
+    src: "files/wm/dunst/"
+    dest: "/home/{{ system_user_name }}/.config/dunst/"
+    owner: "{{ system_user_name }}"
+    group: "{{ system_user_name }}"
     mode: '0644'
-  loop:
-    - diffy
+

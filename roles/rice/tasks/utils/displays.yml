@@ -6,17 +6,13 @@
 
 - name: Ensure arandr config directory exists
   file:
-    path: "/home/{{ item }}/.screenlayout"
+    path: "/home/{{ system_user_name }}/.screenlayout"
     state: directory
-  loop:
-    - diffy
 
 - name: Ensure configs are in place
   ansible.builtin.copy:
     src: "files/.screenlayout/"
-    dest: "/home/{{ item }}/.screenlayout/"
-    owner: "{{ item }}"
-    group: "{{ item }}"
+    dest: "/home/{{ system_user_name }}/.screenlayout/"
+    owner: "{{ system_user_name }}"
+    group: "{{ system_user_name }}"
     mode: '0744'
-  loop:
-    - diffy

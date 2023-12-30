@@ -8,17 +8,13 @@
 
 - name: Ensure flameshot config directory exists
   file:
-    path: "/home/{{ item }}/.config/flameshot"
+    path: "/home/{{ system_user_name }}/.config/flameshot"
     state: directory
-  loop:
-    - diffy
 
 - name: Copy flameshot config
   template:
     src: files/utils/flameshot.ini.j2
-    dest: "/home/{{ item }}/.config/flameshot.ini"
-    owner: "{{ item }}"
-    group: "{{ item }}"
+    dest: "/home/{{ system_user_name }}/.config/flameshot.ini"
+    owner: "{{ system_user_name }}"
+    group: "{{ system_user_name }}"
     mode: '0644'
-  loop:
-    - diffy

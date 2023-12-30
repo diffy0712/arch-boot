@@ -3,20 +3,26 @@
   pacman:
     name:
       - i3-gaps
+      - brillo
 
 - name: Ensure i3 config directory exists
   file:
-    path: "/home/{{ item }}/.config/i3"
+    path: "/home/{{ system_user_name }}/.config/i3"
     state: directory
-  loop:
-    - diffy
 
-- name: Copy i3 config
-  template:
-    src: files/wm/i3/config.j2
-    dest: "/home/{{ item }}/.config/i3/config"
-    owner: "{{ item }}"
-    group: "{{ item }}"
+- name: Ensure configs are in place
+  ansible.builtin.copy:
+    src: "files/wm/i3/config"
+    dest: "/home/{{ system_user_name }}/.config/i3/config"
+    owner: "{{ system_user_name }}"
+    group: "{{ system_user_name }}"
     mode: '0644'
-  loop:
-    - diffy
+
+- name: Ensure scripts are in place and executable
+  ansible.builtin.copy:
+    src: "files/wm/i3/scripts/"
+    dest: "/home/{{ system_user_name }}/.config/i3/scripts/"
+    owner: "{{ system_user_name }}"
+    group: "{{ system_user_name }}"
+    mode: '0755'
+

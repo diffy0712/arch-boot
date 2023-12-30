@@ -1,30 +1,31 @@
 ---
 - include_tasks: shells/main.yml
+  when: true
 
 - include_tasks: terminals/main.yml
+  when: true
 
 - include_tasks: utils/main.yml
+  when: true
 
 - include_tasks: wm/main.yml
+  when: true
 
 - include_tasks: nvim/main.yml
+  when: false
 
 - name: Copy profile config
   template:
     src: files/.profile.j2
-    dest: "/home/{{ item }}/.profile"
-    owner: "{{ item }}"
-    group: "{{ item }}"
+    dest: "/home/{{ system_user_name }}/.profile"
+    owner: "{{ system_user_name }}"
+    group: "{{ system_user_name }}"
     mode: '0644'
-  loop:
-    - diffy
 
 - name: Copy .Xresources config
   template:
     src: files/.Xresources.j2
-    dest: "/home/{{ item }}/.Xresources"
-    owner: "{{ item }}"
-    group: "{{ item }}"
+    dest: "/home/{{ system_user_name }}/.Xresources"
+    owner: "{{ system_user_name }}"
+    group: "{{ system_user_name }}"
     mode: '0644'
-  loop:
-    - diffy

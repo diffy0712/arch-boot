@@ -6,17 +6,14 @@
 
 - name: Ensure rofi config directory exists
   file:
-    path: "/home/{{ item }}/.config/rofi"
+    path: "/home/{{ system_user_name }}/.config/rofi"
     state: directory
-  loop:
-    - diffy
 
-- name: Copy rofi config
-  template:
-    src: files/wm/rofi/config.j2
-    dest: "/home/{{ item }}/.config/rofi/config.rasi"
-    owner: "{{ item }}"
-    group: "{{ item }}"
+- name: Ensure configs are in place
+  ansible.builtin.copy:
+    src: "files/wm/rofi/"
+    dest: "/home/{{ system_user_name }}/.config/rofi/"
+    owner: "{{ system_user_name }}"
+    group: "{{ system_user_name }}"
     mode: '0644'
-  loop:
-    - diffy
+

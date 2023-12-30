@@ -54,7 +54,11 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+q kill
 
 # start program launcher
-bindsym $mod+g exec --no-startup-id rofi -combi-modi window#drun#ssh -show combi
+bindsym $mod+g exec --no-startup-id rofi -modi drun -show drun \
+		-config ~/.config/rofi/rofidmenu.rasi
+
+bindsym $mod+Shift+g exec --no-startup-id rofi -show window \
+		-config ~/.config/rofi/rofidmenu.rasi
 
 # reload the configuration file
 # bindsym $mod+Shift+c reload
@@ -154,27 +158,25 @@ bindsym $mod+Mod1+9 exec --no-startup-id "~/.screenlayout/laptop.sh; notify-send
 ################################################################################################
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_up
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_down
 
 # Lock screen
 bindsym $mod+9 exec --no-startup-id blurlock
-
 
 ################################################################################################
 ## Multimedia Keys
 ################################################################################################
 
-# volume
-bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
-
-# gradular volume control
-bindsym $mod+XF86AudioRaiseVolume exec amixer -D pulse sset Master 1%+ && pkill -RTMIN+1 i3blocks
-bindsym $mod+XF86AudioLowerVolume exec amixer -D pulse sset Master 1%- && pkill -RTMIN+1 i3blocks
+# use meta keys showing osc using dunst
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_up
+bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_down
 
 # mute
-bindsym XF86AudioMute exec amixer sset Master toggle && killall -USR1 i3blocks
+bindsym XF86AudioMute exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_mute
+
+# mic mute toggle
+bindsym XF86AudioMicMute exec amixer sset Capture toggle
 
 # audio control
 bindsym XF86AudioPlay exec playerctl play
