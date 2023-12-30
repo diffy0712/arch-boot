@@ -1,0 +1,16 @@
+hosts:
+  set: 
+    - name: Development environment hosts
+      ip: 127.0.0.1
+      hostnames:
+        - sonarcube.test
+        - adminer.test
+        - swagger.test
+
+    - name: Client 1 hosts
+      ip: 127.0.0.1
+      hostnames:
+        - client1.test
+
+  unset:
+    - Some old client hosts

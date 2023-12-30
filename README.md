@@ -21,6 +21,7 @@ The playbook:
 - Ensures my development environments are installed, updated and configured
 - Ensures the system is ready for some minimal gaming (mostly steam and xbox controller)
 - Ensures the firewall is installed, updated and configured
+- Ensures the hosts file has all hosts necessary
 - TODO: Ensures backup scripts and crons are working
 
 ## Introduction
