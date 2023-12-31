@@ -19,3 +19,11 @@
     name: "{{ system_user_name }}"
     groups: docker
     append: yes
+
+- name: Log into docker registry
+  docker_login:
+    config_path: "/home/{{ system_user_name }}/.docker/config.json"
+    registry: "{{ item.registry }}"
+    username: "{{ item.user_name }}"
+    password: "{{ item.user_token }}"
+  with_items: "{{ docker_logins }}"
