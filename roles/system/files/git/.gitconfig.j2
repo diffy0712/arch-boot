@@ -1,9 +1,14 @@
 [user]
 	email = {{ system_user_fullname }}
 	name = {{ system_user_email }}
+	signingKey = {{ git_signing_key }}
 [core]
 	editor = nvim
 [merge]
 	ff = False
 [pull]
 	ff = True
+[commit]
+	gpgsign = true
+[tag]
+	forceSignAnnotated = true
